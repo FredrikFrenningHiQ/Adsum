@@ -1,0 +1,83 @@
+<div class="container">
+  <!--lägg till gulp direkt i visual studio genom npm install en mapp över ClientApp och sen taskrunner i visual studio-->
+  <div class="row">
+    <div class="col-sm-10">
+      <h2>Kunder</h2>
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Lägg till ny
+      </button>
+    </div>
+
+    <div class="col-sm-2">
+      <h5>Bokslutsmånad</h5>
+      <select [(ngModel)]="selectedFinancialYear" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of monthList let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Ansvarig</h5>
+      <select [(ngModel)]="selectedAssignee" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of assigneeList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-7"></div>
+  </div>
+  <h6>Fritextsökning</h6>
+  <div class="row justify-content-lg-start">
+    <div class="col-sm-4">
+      <input class="form-control" placeholder="fritext filter" />
+    </div>
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Filtrera
+      </button>
+    </div>
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Rensa
+      </button>
+    </div>
+  </div>
+
+  <div id="table" class="row justify-content-center">
+    <!-- kunder -->
+    <div id="tableHeader" class="col-sm-12">
+      <h3>Kunder</h3>
+    </div>
+    <div class="col-sm-5">
+      <h6>Namn</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Orgnr</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Bokslut</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Ansvarig</h6>
+    </div>
+    <div class="col-sm-1">
+    </div>
+
+    <ul class="row" *ngFor="let item of customerList; let i = index">
+      <li class="col-sm-5">
+        <!--filtrerade uppdrag-->
+        <span>{{item}}</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="orgnr">12345</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="filterFinancialYear">{{selectedFinancialYear}}</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="filterAssignee">{{selectedAssignee}}</span>
+      </li>
+      <li class="col-sm-1">
+        <button class="btn btn-link"><i class="fa fa-file"></i></button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Indata</h2>
+  <div class="row">
+    <div class="col-sm-4">
+      <h6>Tillgänglig arbetstid</h6>
+      <ul class="row justify-content-lg-start" *ngFor="let item of monthList; let i = index">
+        <li class="col-sm-3">
+          <span>{{item}}</span>
+        </li>
+        <li class="col-sm-3">
+          <input class="form-control" placeholder="176" />
+        </li>
+      </ul>
+      <div class="row justify-content-lg-start">
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-light btn-outline-secondary">
+            Spara ändringar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <h6>Uppdragsnamn</h6>
+      <ul class="row justify-content-lg-start" *ngFor="let item of taskList; let i = index">
+        <li class="col-sm-6">
+          <input class="form-control" placeholder="{{item}}" />
+        </li>
+      </ul>
+      <button class="btn btn-link">Lägg till namn</button>
+      <div class="row justify-content-lg-start">
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-light btn-outline-secondary">
+            Spara
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <h6>Kontor</h6>
+      <ul class="row justify-content-lg-start" *ngFor="let item of officeList; let i = index">
+        <li class="col-sm-6">
+          <input class="form-control" placeholder="{{item}}" />
+        </li>
+      </ul>
+      <button class="btn btn-link">Lägg till kontor</button>
+      <div class="row justify-content-lg-start">
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-light btn-outline-secondary">
+            Spara
+          </button>
+        </div>
+      </div>
+
+      <h6>Avdelning</h6>
+      <ul class="row justify-content-lg-start" *ngFor="let item of departmentList; let i = index">
+        <li class="col-sm-6">
+          <input class="form-control" placeholder="{{item}}" />
+        </li>
+      </ul>
+      <button class="btn btn-link">Lägg till avdelning</button>
+      <div class="row justify-content-lg-start">
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-light btn-outline-secondary">
+            Spara
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,134 @@
+<div class="container">
+  <!--lägg till gulp direkt i visual studio genom npm install en mapp över ClientApp och sen taskrunner i visual studio-->
+  <h2>Uppdrag - </h2>
+  <div class="row">
+    <div class="col-sm-3">
+      <h5>Utförare</h5>
+      <select id="assigneeSelect" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+        <option *ngFor="let item of assigneeList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+
+      <h5>Uppdrag</h5>
+      <select id="taskSelect" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+        <option *ngFor="let item of taskList; let i = index" class="dropdown-item" (click)="selectAssignee(item)">{{item}}</option>
+      </select>
+    </div>
+
+    <div class="col-sm-3">
+      <h5>Månad</h5>
+      <select [(ngModel)]="selectedMonth" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of monthList let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Status</h5>
+      <select [(ngModel)]="selectedStatus" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of statusList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Räkenskapsår</h5>
+      <select [(ngModel)]="selectedFinancialYear" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of monthList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-lg-start">
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Filtrera
+      </button>
+    </div>
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Rensa
+      </button>
+    </div>
+  </div>
+
+  <div id="table" class="row justify-content-center">
+    <!--Uppdrag för-->
+    <div id="tableHeader" class="col-sm-12">
+      <h3>Uppdrag för <!--{}--></h3>
+    </div>
+    <div class="col-sm-2">
+      <h6>Kund</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Uppdrag</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Månad</h6>
+    </div>
+    <div class="col-sm-1">
+      <h6>Tid</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Status</h6>
+    </div>
+    <div class="col-sm-1">
+      <h6>Kommentar</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Räkenskapsår</h6>
+    </div>
+
+    <ul class="row" *ngFor="let item of customerList; let i = index">
+      <li class="col-sm-2">
+        <!--filtrerade uppdrag-->
+        <input class="form-control" placeholder="{{item}}" />
+      </li>
+      <li class="col-sm-2">
+        <select id="filterTaskSelect" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+          <option *ngFor="let item of taskList; let i = index" class="dropdown-item" (click)="selectAssignee(item)">{{item}}</option>
+        </select>
+      </li>
+      <li class="col-sm-2">
+        <select id="filterMonthSelect" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+          <option *ngFor="let item of monthList; let i = index" class="dropdown-item">{{item}}</option>
+        </select>
+      </li>
+      <li class="col-sm-1">
+        <input class="form-control" placeholder="0.50" />
+      </li>
+      <li class="col-sm-2">
+        <select id="filterStatusSelect" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+          <option *ngFor="let item of statusList; let i = index" class="dropdown-item">{{item}}</option>
+        </select>
+      </li>
+      <li class="col-sm-1">
+        <input class="form-control" placeholder="Ink2" />
+      </li>
+      <li class="col-sm-2">
+        <span id="filterFinancialYear" class="col-sm-1">{{selectedFinancialYear}}</span>
+        <button class="btn btn-link"><i class="fa fa-trash">Ta Bort</i></button>
+      </li>
+    </ul>
+    <!-- Totalt-->
+    <div class="col-sm-6">
+      <h5>Totalt: {{customerList.length}}</h5>
+    </div>
+    <div class="col-sm-6">
+      <h5>33<!--{}--></h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Spara ändringar
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Ångra ändringar
+      </button>
+    </div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Återställ status
+      </button>
+    </div>
+  </div>
+</div>

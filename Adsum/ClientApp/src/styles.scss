@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+body {
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%
+}
+
+.row {
+  margin-bottom: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
+  cursor: pointer;
+}
+
+ul:nth-child(odd) {
+  background: white;
+}
+
+li {
+  float: left;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background: #6c757d;
+}
+
+#tableHeader {
+  text-align: center;
+}
+
+#table {
+  background: #CCC;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  button {
+    font-size: 0.7rem;
+  }
+
+  ul {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+  }
+}
+
+div.container a.input-group-btn {
+  font-size: 14px;
+}

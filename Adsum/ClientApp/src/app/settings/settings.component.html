@@ -1,0 +1,47 @@
+<div class="container">
+  <!--lägg till gulp direkt i visual studio genom npm install en mapp över ClientApp och sen taskrunner i visual studio-->
+  <div class="row justify-content-lg-start">
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Visa uppdrag
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Övrig tid
+      </button>
+    </div>
+  </div>
+
+  <h6>Förnamn</h6>
+  <input class="col-sm-5 form-control" placeholder="Förnamn" />
+  <h6>Efternamn</h6>
+  <input class="col-sm-5 form-control" placeholder="Efternamn" />
+  <h6>Personnr</h6>
+  <input class="col-sm-2 form-control" placeholder="xxxxxx-xxxx" />
+  <h6>E-post</h6>
+  <input class="col-sm-5 form-control" placeholder="namn@adsum.se" />
+
+  <h6>Kontor</h6>
+  <select [(ngModel)]="selectedOffice" class="col-sm-2 btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+    <option *ngFor="let item of officeList; let i = index" class="dropdown-item">{{item}}</option>
+  </select>
+  <h6>Avdelning</h6>
+  <select [(ngModel)]="selectedDepartment" class="col-sm-2 btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+    <option *ngFor="let item of departmentList; let i = index" class="dropdown-item">{{item}}</option>
+  </select>
+
+  <h6>Tjänstgöringsgrad</h6>
+  <input class="col-sm-1 form-control" placeholder="100" />
+
+  <h6>Aktiv (Ej aktiv kan inte logga in)</h6>
+  <select [(ngModel)]="selectedActive" class="col-sm-1 btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+    <option *ngFor="let item of activeList; let i = index" class="dropdown-item">{{item}}</option>
+  </select>
+
+  <h6>Lösenord (ange bara om du vill byta lösenord)</h6>
+  <input class="col-sm-5 form-control" placeholder="" />
+
+</div>
+
+

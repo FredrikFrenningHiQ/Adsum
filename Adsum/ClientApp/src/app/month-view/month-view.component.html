@@ -1,0 +1,109 @@
+<div class="container">
+  <!--lägg till gulp direkt i visual studio genom npm install en mapp över ClientApp och sen taskrunner i visual studio-->
+  <h2>Månadsvy</h2>
+  <div class="row">
+    <div class="col-sm-3">
+      <h5>Månad</h5>
+      <select [(ngModel)]="selectedMonth" class="btn btn-light btn-outline-secondary selectpicker" multiple data-live-search="true">
+        <option *ngFor="let item of monthList let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Kontor</h5>
+      <select [(ngModel)]="selectedOffice" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+        <option *ngFor="let item of officeList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Avdelning</h5>
+      <select [(ngModel)]="selectedDepartment" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+        <option *ngFor="let item of departmentList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3">
+      <h5>Person</h5>
+      <select [(ngModel)]="selectedAssignee" class="btn btn-light btn-outline-secondary form-control" data-toggle="dropdown">
+        <option *ngFor="let item of assigneeList; let i = index" class="dropdown-item">{{item}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row justify-content-lg-start">
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Filtrera
+      </button>
+    </div>
+    <div class="col-sm-1">
+      <button type="button" class="btn btn-light btn-outline-secondary">
+        Rensa
+      </button>
+    </div>
+  </div>
+
+  <div id="table" class="row justify-content-center">
+    <!-- kunder -->
+    <div id="tableHeader" class="col-sm-12">
+      <h3>{{selectedMonth}}</h3>
+    </div>
+    <div class="col-sm-4">
+      <h6> </h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Tillgänglig</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Kundtid</h6>
+    </div>
+    <div class="col-sm-1">
+      <h6>Intern</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Semester</h6>
+    </div>
+    <div class="col-sm-1">
+      <h6>Ö/U</h6>
+    </div>
+
+    <ul class="row" *ngFor="let item of assigneeList; let i = index">
+      <li class="col-sm-4">
+        <!--filtrerade uppdrag-->
+        <span>{{item}}</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="availableTime">176</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="customerTime">55 (0)</span>
+      </li>
+      <li class="col-sm-1">
+        <span id="internalTime">0</span>
+      </li>
+      <li class="col-sm-2">
+        <span id="vacationTime">0</span>
+      </li>
+      <li class="col-sm-1">
+        <span id="overTime">121</span>
+      </li>
+    </ul>
+    <!-- Totalt-->
+    <div class="col-sm-4">
+      <h5>Summering</h5>
+    </div>
+    <div class="col-sm-2">
+      <h5>1194</h5>
+    </div>
+    <div class="col-sm-2">
+      <h5>518 (2)</h5>
+    </div>
+    <div class="col-sm-1">
+      <h5>85</h5>
+    </div>
+    <div class="col-sm-2">
+      <h5>113</h5>
+    </div>
+    <div class="col-sm-1">
+      <h5>479</h5>
+    </div>
+  </div>
+</div>
+
